@@ -9,19 +9,17 @@ const app = express();
 //Configuración de CORS
 app.use(cors());
 
+//Lectura y parseo del body
+app.use(express.json());
+
 //estableciendo conexion a la bd
 
 dbConection();
 //console.log(process.env);
 
 //Rutas de la API
-app.get('/', (req, res) => {
-    res.status(400).json({
-        ok: true,
-        msg: 'Bienvenidos a node'
-    });
-});
-
+app.use('/api/usuarios', require('./routes/usuarios.route'));
+app.use('/api/login', require('./routes/auth.route'));
 //codigo para desplegar el servidor 
 
 app.listen(process.env.PORT, () => {
