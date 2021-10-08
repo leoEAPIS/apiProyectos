@@ -18,8 +18,10 @@ dbConection();
 //console.log(process.env);
 
 //Rutas de la API
-app.use('/api/usuarios', require('./routes/usuarios.route'));
-app.use('/api/login', require('./routes/auth.route'));
+app.use('/api/usuarios', require('./routes/usuarios.routes'));
+app.use('/api/login', require('./routes/auth.routes'));
+//app.use('/api/usuarios', require('./routes/usuarios.routes'));
+//app.use('/api/login', require('./routes/auth.routes'));
 //codigo para desplegar el servidor 
 
 app.listen(process.env.PORT, () => {
